@@ -47,6 +47,6 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   subnet_id = "${aws_subnet.main.id}"
   vpc_security_group_ids = [ "${aws_security_group.hashitop_allow_ssh.id}" ]
-  key_name = "hashitop-apac"
+  key_name = "top-ec2-sydney"
   associate_public_ip_address = true
 }
