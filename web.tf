@@ -50,3 +50,13 @@ resource "aws_instance" "web" {
   key_name = "top-ec2-sydney"
   associate_public_ip_address = true
 }
+
+resource "aws_instance" "web1" {
+  ami = "ami-0fb7513bcdc525c3bb"
+  instance_type = "t2.micro"
+  subnet_id = "${aws_subnet.main.id}"
+  vpc_security_group_ids = [ "${aws_security_group.hashitop_allow_ssh.id}" ]
+  key_name = "top-ec2-sydney"
+  associate_public_ip_address = true
+  depends_on = ["aws_instance.web"]
+}
